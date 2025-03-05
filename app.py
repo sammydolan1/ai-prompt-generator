@@ -47,7 +47,7 @@ if theme == "Dark Mode":
             
             /* Style for sidebar text */
             .stSidebar, .st-emotion-cache-16txtl3, .st-emotion-cache-1vbkxwb, 
-            .st-emotion-cache-pkbazv, st-emotion-cache-1mqbigv p, .stRadio, label, .css-1aumxhk, .e1icttdg0 { color: #FFF !important; }
+            .st-emotion-cache-pkbazv, p.st-emotion-cache-1mqbigv, .stRadio, label, .css-1aumxhk, .e1icttdg0 { color: #FFF !important; }
 
             /* Style for dropdown box in sidebar */
             .stSelectbox div[data-baseweb="select"] { background-color: #000 !important; color: #FFF !important; }
@@ -81,7 +81,7 @@ else:
             
             /* Style for sidebar text */
             .stSidebar, .st-emotion-cache-16txtl3, .st-emotion-cache-1vbkxwb, 
-            .st-emotion-cache-pkbazv, st-emotion-cache-1mqbigv p, .stRadio, label, .css-1aumxhk .e1icttdg0 { color: #000 !important; }
+            .st-emotion-cache-pkbazv, p.st-emotion-cache-1mqbigv, .stRadio, label, .css-1aumxhk .e1icttdg0 { color: #000 !important; }
 
             /* Style for dropdown box in sidebar */
             .stSelectbox div[data-baseweb="select"] { background-color: #FFF !important; color: #000 !important; }
