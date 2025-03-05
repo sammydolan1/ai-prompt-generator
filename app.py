@@ -37,16 +37,17 @@ if theme == "Dark Mode":
             /* Dark Mode Styles */
 
             /* Change background and text color for the main app */
-            body, .stApp { background-color: #1E1E1E !important; color: white !important; }
+            body, .stApp { background-color: #1E1E1E !important; color: #FFF !important; }
             
             /* Style for buttons */
-            .stButton>button { background-color: #4CAF50 !important; color: white !important; border-radius: 8px; padding: 10px 20px; }
+            .stButton>button { background-color: #4CAF50 !important; color: #FFF !important; border-radius: 8px; padding: 10px 20px; }
             
             /* Style for text input fields */
-            .stTextInput>div>div>input { background-color: #333 !important; color: white !important; }
+            .stTextInput>div>div>input { background-color: #333 !important; color: #FFF !important; }
             
             /* Style for sidebar text */
-            .stSidebar, .st-emotion-cache-16txtl3, .st-emotion-cache-1vbkxwb { color: white !important; }
+            .stSidebar, .st-emotion-cache-16txtl3, .st-emotion-cache-1vbkxwb, 
+            .st-emotion-cache-pkbazv, label, .css-1aumxhk { color: #FFF !important; }
 
             /* Style for dropdown box in sidebar */
             .stSelectbox div[data-baseweb="select"] { background-color: #333 !important; color: white !important; }
@@ -67,16 +68,17 @@ else:
             /* Light Mode Styles */
 
             /* Change background and text color for the main app */
-            body, .stApp { background-color: white !important; color: black !important; }
+            body, .stApp { background-color: white !important; color: #000 !important; }
             
             /* Style for buttons */
-            .stButton>button { background-color: #4CAF50 !important; color: black !important; border-radius: 8px; padding: 10px 20px; }
+            .stButton>button { background-color: #4CAF50 !important; color: #000 !important; border-radius: 8px; padding: 10px 20px; }
             
             /* Style for text input fields */
-            .stTextInput>div>div>input { background-color: #f3f3f3 !important; color: black !important; }
+            .stTextInput>div>div>input { background-color: #f3f3f3 !important; color: #000 !important; }
             
             /* Style for sidebar text */
-            .stSidebar, .st-emotion-cache-16txtl3, .st-emotion-cache-1vbkxwb { color: black !important; }
+            .stSidebar, .st-emotion-cache-16txtl3, .st-emotion-cache-1vbkxwb, 
+            .st-emotion-cache-pkbazv, label, .css-1aumxhk { color: #000 !important; }
 
             /* Style for dropdown box in sidebar */
             .stSelectbox div[data-baseweb="select"] { background-color: #f3f3f3 !important; color: black !important; }
