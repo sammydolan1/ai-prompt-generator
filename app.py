@@ -56,7 +56,7 @@ if theme == "Dark Mode":
             section[data-testid="stSidebar"], .st-emotion-cache-1d391kg { background-color: #2C2F33 !important; color: white !important; }
 
             /* Style for text inside the radio button */
-            div[role="radiogroup"] label { color: #FFF !important; }
+            div[role="radiogroup"] label span { color: #FFF !important; }
 
             /* Improve text readability */
             .stMarkdown { font-size: 18px !important; }
@@ -90,7 +90,7 @@ else:
             section[data-testid="stSidebar"], .st-emotion-cache-1d391kg { background-color: #f8f9fa !important; color: black !important; }
             
             /* Style for text inside the radio button */
-            div[role="radiogroup"] label { color: #000 !important; }
+            div[role="radiogroup"] label span { color: #000 !important; }
 
             /* Improve text readability */
             .stMarkdown { font-size: 18px !important; }
