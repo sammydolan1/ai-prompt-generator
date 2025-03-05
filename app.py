@@ -36,7 +36,7 @@ if theme == "Dark Mode":
         <style>
             /* Dark Mode Styles */
 
-            /* Change background and text color for the entire app */
+            /* Change background and text color for the main app */
             body, .stApp { background-color: #1E1E1E !important; color: white !important; }
             
             /* Style for buttons */
@@ -46,7 +46,7 @@ if theme == "Dark Mode":
             .stTextInput>div>div>input { background-color: #333 !important; color: white !important; }
             
             /* Change sidebar background color in Dark Mode */
-            section[data-testid="stSidebar"] { background-color: #2C2F33 !important; color: white !important; }
+            section[data-testid="stSidebar"], .st-emotion-cache-1d391kg { background-color: #2C2F33 !important; color: white !important; }
 
             /* Improve text readability */
             .stMarkdown { font-size: 18px !important; }
@@ -60,7 +60,7 @@ else:
         <style>
             /* Light Mode Styles */
 
-            /* Change background and text color for the entire app */
+            /* Change background and text color for the main app */
             body, .stApp { background-color: white !important; color: black !important; }
             
             /* Style for buttons */
@@ -70,7 +70,7 @@ else:
             .stTextInput>div>div>input { background-color: #f3f3f3 !important; color: black !important; }
             
             /* Change sidebar background color in Dark Mode */
-            .css-1d391kg { background-color: #f8f9fa !important; }
+            section[data-testid="stSidebar"], .st-emotion-cache-1d391kg { background-color: #f8f9fa !important; color: black !important; }
             
             /* Improve text readability */
             .stMarkdown { font-size: 18px !important; }
