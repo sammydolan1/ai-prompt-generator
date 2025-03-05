@@ -5,6 +5,14 @@ import streamlit as st
 # Load API key securely from Streamlit Secrets
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
+# Sidebar customization
+st.sidebar.header("🎨 Customize Your Prompt")
+prompt_length = st.sidebar.selectbox("📏 Select Prompt Length:", ["Short", "Medium", "Long"])
+tone = st.sidebar.selectbox("🎭 Select Writing Tone:", ["Creative", "Formal", "Humorous", "Inspiring"])
+category = st.sidebar.selectbox("📖 Select Prompt Category:", ["General", "Sci-Fi", "Mystery", "Romance"])
+num_prompts = st.sidebar.slider("🔢 Number of Prompts", 1, 5, 3)
+theme = st.sidebar.radio("🌓 Select Theme:", ["Light Mode", "Dark Mode"])
+
 # Apply dynamic CSS based on theme selection
 if theme == "Dark Mode":
     st.markdown(
@@ -37,14 +45,6 @@ else:
 # Set up the main UI
 st.title("📝 AI Writing Prompt Generator")
 st.write("Generate creative writing prompts with AI! Customize the style, length, and tone.")
-
-# Sidebar customization
-st.sidebar.header("🎨 Customize Your Prompt")
-prompt_length = st.sidebar.selectbox("📏 Select Prompt Length:", ["Short", "Medium", "Long"])
-tone = st.sidebar.selectbox("🎭 Select Writing Tone:", ["Creative", "Formal", "Humorous", "Inspiring"])
-category = st.sidebar.selectbox("📖 Select Prompt Category:", ["General", "Sci-Fi", "Mystery", "Romance"])
-num_prompts = st.sidebar.slider("🔢 Number of Prompts", 1, 5, 3)
-theme = st.sidebar.radio("🌓 Select Theme:", ["Light Mode", "Dark Mode"])
 
 # User input
 topic = st.text_input("Enter a topic:")
