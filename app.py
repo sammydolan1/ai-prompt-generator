@@ -5,42 +5,34 @@ import streamlit as st
 # Load API key securely from Streamlit Secrets
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
-# Apply Custom CSS for UI Enhancements
-st.markdown(
-    """
-    <style>
-        /* Custom button styling */
-        .stButton>button {
-            background-color: #4CAF50 !important;
-            color: white !important;
-            border-radius: 8px;
-            padding: 10px 20px;
-        }
+# Apply dynamic CSS based on theme selection
+if theme == "Dark Mode":
+    st.markdown(
+        """
+        <style>
+            body, .stApp { background-color: #1E1E1E !important; color: white !important; }
+            .stButton>button { background-color: #4CAF50 !important; color: white !important; border-radius: 8px; padding: 10px 20px; }
+            .stTextInput>div>div>input { background-color: #333 !important; color: white !important; }
+            .css-1d391kg { background-color: #2C2F33 !important; }
+            .stMarkdown { font-size: 18px !important; }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
+else:
+    st.markdown(
+        """
+        <style>
+            body, .stApp { background-color: white !important; color: black !important; }
+            .stButton>button { background-color: #4CAF50 !important; color: black !important; border-radius: 8px; padding: 10px 20px; }
+            .stTextInput>div>div>input { background-color: #f3f3f3 !important; color: black !important; }
+            .css-1d391kg { background-color: #f8f9fa !important; }
+            .stMarkdown { font-size: 18px !important; }
+        </style>
+        """,
+        unsafe_allow_html=True
+    )
 
-        /* Custom text input styling */
-        .stTextInput>div>div>input {
-            background-color: #333 !important;
-            color: white !important;
-        }
-
-        /* Sidebar styling */
-        .css-1d391kg {
-            background-color: #2C2F33 !important;
-        }
-
-        /* Center the title */
-        .stApp {
-            text-align: center;
-        }
-
-        /* Improve text readability */
-        .stMarkdown {
-            font-size: 18px !important;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
 
 # Set up the main UI
 st.title("📝 AI Writing Prompt Generator")
@@ -52,6 +44,7 @@ prompt_length = st.sidebar.selectbox("📏 Select Prompt Length:", ["Short", "Me
 tone = st.sidebar.selectbox("🎭 Select Writing Tone:", ["Creative", "Formal", "Humorous", "Inspiring"])
 category = st.sidebar.selectbox("📖 Select Prompt Category:", ["General", "Sci-Fi", "Mystery", "Romance"])
 num_prompts = st.sidebar.slider("🔢 Number of Prompts", 1, 5, 3)
+theme = st.sidebar.radio("🌓 Select Theme:", ["Light Mode", "Dark Mode"])
 
 # User input
 topic = st.text_input("Enter a topic:")
