@@ -23,7 +23,7 @@ category = st.sidebar.selectbox("📖 Select Prompt Category:", ["General", "Sci
 num_prompts = st.sidebar.slider("🔢 Number of Prompts", 1, 5, 3)
 
 # Theme Toggle: Allows users to switch between Light and Dark Mode
-theme = st.sidebar.radio("🌓 Select Theme:", ["Light Mode", "Dark Mode"])
+theme = st.sidebar.radio("Select Theme:", ["Light Mode", "Dark Mode"])
 
 # =============================
 # Dynamic CSS for Light/Dark Mode
@@ -45,7 +45,13 @@ if theme == "Dark Mode":
             /* Style for text input fields */
             .stTextInput>div>div>input { background-color: #333 !important; color: white !important; }
             
-            /* Change sidebar background color in Dark Mode */
+            /* Style for sidebar text */
+            .stSidebar, .st-emotion-cache-16txtl3, .st-emotion-cache-1vbkxwb { color: white !important; }
+
+            /* Style for dropdown box in sidebar */
+            .stSelectbox div[data-baseweb="select"] { background-color: #333 !important; color: white !important; }
+
+            /* Style for sidebar background color */
             section[data-testid="stSidebar"], .st-emotion-cache-1d391kg { background-color: #2C2F33 !important; color: white !important; }
 
             /* Improve text readability */
@@ -69,7 +75,13 @@ else:
             /* Style for text input fields */
             .stTextInput>div>div>input { background-color: #f3f3f3 !important; color: black !important; }
             
-            /* Change sidebar background color in Dark Mode */
+            /* Style for sidebar text */
+            .stSidebar, .st-emotion-cache-16txtl3, .st-emotion-cache-1vbkxwb { color: black !important; }
+
+            /* Style for dropdown box in sidebar */
+            .stSelectbox div[data-baseweb="select"] { background-color: #f3f3f3 !important; color: black !important; }
+
+            /* Style for sidebar background color */
             section[data-testid="stSidebar"], .st-emotion-cache-1d391kg { background-color: #f8f9fa !important; color: black !important; }
             
             /* Improve text readability */
