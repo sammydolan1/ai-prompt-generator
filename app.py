@@ -5,9 +5,45 @@ import streamlit as st
 # Load API key securely from Streamlit Secrets
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
+# Apply Custom CSS for UI Enhancements
+st.markdown(
+    """
+    <style>
+        /* Custom button styling */
+        .stButton>button {
+            background-color: #4CAF50 !important;
+            color: white !important;
+            border-radius: 8px;
+            padding: 10px 20px;
+        }
 
-# Streamlit App UI
-st.title("AI Writing Prompt Generator ✍️")
+        /* Custom text input styling */
+        .stTextInput>div>div>input {
+            background-color: #333 !important;
+            color: white !important;
+        }
+
+        /* Sidebar styling */
+        .css-1d391kg {
+            background-color: #2C2F33 !important;
+        }
+
+        /* Center the title */
+        .stApp {
+            text-align: center;
+        }
+
+        /* Improve text readability */
+        .stMarkdown {
+            font-size: 18px !important;
+        }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Set up the main UI
+st.title("📝 AI Writing Prompt Generator")
 st.write("Generate creative writing prompts with AI! Customize the style, length, and tone.")
 
 # Sidebar customization
