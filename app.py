@@ -47,10 +47,10 @@ if theme == "Dark Mode":
             
             /* Style for sidebar text */
             .stSidebar, .st-emotion-cache-16txtl3, .st-emotion-cache-1vbkxwb, 
-            .st-emotion-cache-pkbazv, label, .css-1aumxhk { color: #FFF !important; }
+            .st-emotion-cache-pkbazv, st-emotion-cache-1mqbigv, label, .css-1aumxhk { color: #FFF !important; }
 
             /* Style for dropdown box in sidebar */
-            .stSelectbox div[data-baseweb="select"] { background-color: #333 !important; color: white !important; }
+            .stSelectbox div { background-color: #000 !important; color: #FFF !important; }
 
             /* Style for sidebar background color */
             section[data-testid="stSidebar"], .st-emotion-cache-1d391kg { background-color: #2C2F33 !important; color: white !important; }
@@ -78,10 +78,10 @@ else:
             
             /* Style for sidebar text */
             .stSidebar, .st-emotion-cache-16txtl3, .st-emotion-cache-1vbkxwb, 
-            .st-emotion-cache-pkbazv, label, .css-1aumxhk { color: #000 !important; }
+            .st-emotion-cache-pkbazv, st-emotion-cache-1mqbigv, label, .css-1aumxhk { color: #000 !important; }
 
             /* Style for dropdown box in sidebar */
-            .stSelectbox div[data-baseweb="select"] { background-color: #f3f3f3 !important; color: black !important; }
+            .stSelectbox div { background-color: #FFF !important; color: #000 !important; }
 
             /* Style for sidebar background color */
             section[data-testid="stSidebar"], .st-emotion-cache-1d391kg { background-color: #f8f9fa !important; color: black !important; }
