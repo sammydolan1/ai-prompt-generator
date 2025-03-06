@@ -54,8 +54,9 @@ if st.button("Generate Prompt"):
                     ]
                 )
 
-                # Split the response into separate prompts
-                prompts = response.choices[0].message.content.split("\n") )
+                # Extract AI-generated response
+                prompt_text = response.choices[0].message.content.strip()
+                prompts = prompt_text.split("\n") if "\n" in prompt_text else [prompt_text]
 
                 # Display prompts
                 st.success("✅ Here are your AI-generated prompts:")
