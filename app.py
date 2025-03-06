@@ -56,7 +56,7 @@ if st.button("Generate Prompt"):
 
                 # Extract AI-generated response
                 prompt_text = response.choices[0].message.content.strip()
-                prompts = [p for p in prompt_text.split("\n") if p.strip()]  # Remove empty placeholders
+                prompts = [p.lstrip("12345. ") for p in prompt_text.split("\n") if p.strip()]  # Remove empty placeholders and leading numbers
 
                 # Display prompts
                 st.success("✅ Here are your AI-generated prompts:")
