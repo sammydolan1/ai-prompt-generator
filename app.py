@@ -22,86 +22,9 @@ category = st.sidebar.selectbox("📖 Select Prompt Category:", ["General", "Sci
 # Choose the number of prompts to generate (from 1 to 5)
 num_prompts = st.sidebar.slider("🔢 Number of Prompts", 1, 5, 3)
 
-# Theme Toggle: Allows users to switch between Light and Dark Mode
-theme = st.sidebar.radio("Select Theme:", ["Light Mode", "Dark Mode"])
 
 # =============================
-# Dynamic CSS for Light/Dark Mode
-# =============================
-
-# Apply different styles depending on the selected theme
-if theme == "Dark Mode":
-    st.markdown(
-        """
-        <style>
-            /* Dark Mode Styles */
-
-            /* Change background and text color for the main app */
-            body, .stApp { background-color: #1E1E1E !important; color: #FFF !important; }
-            
-            /* Style for buttons */
-            .stButton>button { background-color: #4CAF50 !important; color: #FFF !important; border-radius: 8px; padding: 10px 20px; }
-            
-            /* Style for text input fields */
-            .stTextInput>div>div>input { background-color: #333 !important; color: #FFF !important; }
-            
-            /* Style for sidebar text */
-            .stSidebar, .st-emotion-cache-16txtl3, .st-emotion-cache-1vbkxwb, 
-            .st-emotion-cache-pkbazv, p.st-emotion-cache-1mqbigv, .stRadio, label, .css-1aumxhk, .e1icttdg0 { color: #FFF !important; }
-
-            /* Style for dropdown box in sidebar */
-            .stSelectbox div[data-baseweb="select"] { background-color: #000 !important; color: #FFF !important; }
-
-            /* Style for sidebar background color */
-            section[data-testid="stSidebar"], .st-emotion-cache-1d391kg { background-color: #2C2F33 !important; color: white !important; }
-
-            /* Style for text inside the radio button 
-            .stRadio div[data-baseweb="radio"] label { color: #FFF !important; }*/
-
-            /* Improve text readability */
-            .stMarkdown { font-size: 18px !important; }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-else:
-    st.markdown(
-        """
-        <style>
-            /* Light Mode Styles */
-
-            /* Change background and text color for the main app */
-            body, .stApp { background-color: white !important; color: #000 !important; }
-            
-            /* Style for buttons */
-            .stButton>button { background-color: #4CAF50 !important; color: #000 !important; border-radius: 8px; padding: 10px 20px; }
-            
-            /* Style for text input fields */
-            .stTextInput>div>div>input { background-color: #f3f3f3 !important; color: #000 !important; }
-            
-            /* Style for sidebar text */
-            .stSidebar, .st-emotion-cache-16txtl3, .st-emotion-cache-1vbkxwb, 
-            .st-emotion-cache-pkbazv, p.st-emotion-cache-1mqbigv, .stRadio, label, .css-1aumxhk .e1icttdg0 { color: #000 !important; }
-
-            /* Style for dropdown box in sidebar */
-            .stSelectbox div[data-baseweb="select"] { background-color: #FFF !important; color: #000 !important; }
-
-            /* Style for sidebar background color */
-            section[data-testid="stSidebar"], .st-emotion-cache-1d391kg { background-color: #f8f9fa !important; color: black !important; }
-            
-            /* Style for text inside the radio button 
-            .stRadio div[data-baseweb="radio"] label { color: #000 !important; }*/
-
-            /* Improve text readability */
-            .stMarkdown { font-size: 18px !important; }
-        </style>
-        """,
-        unsafe_allow_html=True
-    )
-
-
-# =============================
-# 📝 Main UI - AI Prompt Generator
+# Main UI - AI Prompt Generator
 # =============================
 
 # App Title
