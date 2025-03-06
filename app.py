@@ -43,20 +43,19 @@ if st.button("Generate Prompt"):
     else:
         with st.spinner("Generating your prompts..."): # Show loading spinner
             try:
-                prompts = [] # Store generated prompts
-
-                # Loop through the number of prompts the user requested
-                for i in range(num_prompts):  # Generate multiple prompts
-                    response = openai.chat.completions.create(
+                # Request multiple prompts in a single API call
+                response = openai.chat.completions.create(
                         model="gpt-4",
                         messages=[
-                            {"role": "system", "content": f"You are an AI expert in {category} writing. Generate a {tone.lower()} and {prompt_length.lower()} prompt for a story about {topic}."},
-                            {"role": "user", "content": f"Give me a {prompt_length.lower()} {tone.lower()} writing prompt in the {category.lower()} genre about {topic}."}
-                        ]
-                    )
+                        {
+                            "role": "system",
+                            "content": f"You are an AI expert in {category} writing. Generate {num_prompts} {tone.lower()} and {prompt_length.lower()} prompts for a story about {topic}."
+                        }
+                    ]
+                )
 
-                    # Extract the AI-generated text
-                    prompts.append(response.choices[0].message.content)
+                # Split the response into separate prompts
+                prompts = response.choices[0].message.content.split("\n") )
 
                 # Display prompts
                 st.success("✅ Here are your AI-generated prompts:")
