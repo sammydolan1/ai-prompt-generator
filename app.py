@@ -98,20 +98,14 @@ with col2:
     num_prompts = st.slider("🔢 Number of Prompts", 1, 5, 3)
 
 # Function to create a copy-to-clipboard button
-def clipboard_button(text, label, key):
-    js_code = f"""
-    <script>
-        function copyToClipboard_{key}() {{
-            navigator.clipboard.writeText("{text.replace('"', '\"')}");
-            document.getElementById("{key}").innerText = "✅ Copied!";
-            setTimeout(() => {{
-                document.getElementById("{key}").innerText = "{label}";
-            }}, 2000);
-        }}
-    </script>
-    <button id="{key}" onclick="copyToClipboard_{key}()">{label}</button>
-    """
-    st.markdown(js_code, unsafe_allow_html=True)
+def copy_to_clipboard_button(prompt, key):
+    if st.button(f"📋 Copy Prompt {key+1}", key=f"copy_{key}"):
+        st.session_state["copied_prompt"] = prompt
+        st.success(f"✅ Prompt {key+1} copied!")
+
+# Initialize session state for copied prompt
+if "copied_prompt" not in st.session_state:
+    st.session_state["copied_prompt"] = ""
 
 # Button to generate AI prompts
 if st.button("Generate Prompt", use_container_width=True):
@@ -140,7 +134,8 @@ if st.button("Generate Prompt", use_container_width=True):
                 for i, p in enumerate(prompts):
                     with st.expander(f"✨ Prompt {i+1}"):
                         st.write(p)
-                        clipboard_button(p, "📋 Copy", f"copy_btn_{i}")
+                        st.text_area(f"Prompt {i+1}", value=p, height=100, key=f"text_{i}")
+                        copy_to_clipboard_button(p, i)
                 
                 full_prompt_text = "\n\n".join([f"Prompt {i+1}: {p}" for i, p in enumerate(prompts)])
 
