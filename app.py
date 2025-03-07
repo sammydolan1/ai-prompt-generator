@@ -11,7 +11,7 @@ openai.api_key = st.secrets["OPENAI_API_KEY"]
 st.markdown("""
     <style>
         .title {
-            color: #4CAF50;
+            color: #008cba !important;
             text-align: center;
             font-size: 36px;
             font-weight: bold;
