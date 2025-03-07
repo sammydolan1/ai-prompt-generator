@@ -67,7 +67,7 @@ with col1:
         st.session_state.topic = ""
 
     # User Input: Enter a topic for the AI to generate a prompt
-    topic = st.text_input("✍️ Enter a topic:", value=st.session_state.topic, placeholder="Type your topic here...", help="Enter a subject for the AI to generate prompts about.")
+    topic = st.text_input("✍️ Enter a topic:", value=st.session_state.topic, placeholder="Type your topic or hit Surprise Me!", help="Enter a subject for the AI to generate prompts about. Surprise Me button will generate a random topic.")
 
     # Surprise Me! button to generate a random topic
     if st.button("🎲 Surprise Me!"):
