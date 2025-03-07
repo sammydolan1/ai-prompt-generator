@@ -1,5 +1,6 @@
 import openai
 import streamlit as st
+import random
 
 # Load API key securely from Streamlit Secrets
 openai.api_key = st.secrets["OPENAI_API_KEY"]
