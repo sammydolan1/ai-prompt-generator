@@ -1,6 +1,7 @@
 import openai
 import streamlit as st
 import random
+import base64
 
 # Load API key securely from Streamlit Secrets
 openai.api_key = st.secrets["OPENAI_API_KEY"]
@@ -97,6 +98,23 @@ with col2:
     # Choose the number of prompts to generate (from 1 to 5)
     num_prompts = st.slider("🔢 Number of Prompts", 1, 5, 3)
 
+# Function to create a copy-to-clipboard button
+def clipboard_button(text, label, key):
+    b64_text = base64.b64encode(text.encode()).decode()
+    js_code = f"""
+    <script>
+        function copyToClipboard() {{
+            navigator.clipboard.writeText(atob("{b64_text}"));
+            document.getElementById("{key}").innerText = "✅ Copied!";
+            setTimeout(() => {{
+                document.getElementById("{key}").innerText = "{label}";
+            }}, 2000);
+        }}
+    </script>
+    <button id="{key}" onclick="copyToClipboard()">{label}</button>
+    """
+    st.markdown(js_code, unsafe_allow_html=True)
+
 # Button to generate AI prompts
 if st.button("Generate Prompt", use_container_width=True):
     if st.session_state.topic.strip() == "": # Check if the topic is empty
@@ -124,6 +142,7 @@ if st.button("Generate Prompt", use_container_width=True):
                 for i, p in enumerate(prompts):
                     with st.expander(f"✨ Prompt {i+1}"):
                         st.write(p)
+                        clipboard_button(p, "📋 Copy", f"copy_btn_{i}")
                 
                 full_prompt_text = "\n\n".join([f"Prompt {i+1}: {p}" for i, p in enumerate(prompts)])
 
