@@ -1,7 +1,6 @@
 import openai
 import streamlit as st
 import random
-import base64
 
 # Load API key securely from Streamlit Secrets
 openai.api_key = st.secrets["OPENAI_API_KEY"]
@@ -100,18 +99,17 @@ with col2:
 
 # Function to create a copy-to-clipboard button
 def clipboard_button(text, label, key):
-    b64_text = base64.b64encode(text.encode()).decode()
     js_code = f"""
     <script>
-        function copyToClipboard() {{
-            navigator.clipboard.writeText(atob("{b64_text}"));
+        function copyToClipboard_{key}() {{
+            navigator.clipboard.writeText("{text.replace('"', '\"')}");
             document.getElementById("{key}").innerText = "✅ Copied!";
             setTimeout(() => {{
                 document.getElementById("{key}").innerText = "{label}";
             }}, 2000);
         }}
     </script>
-    <button id="{key}" onclick="copyToClipboard()">{label}</button>
+    <button id="{key}" onclick="copyToClipboard_{key}()">{label}</button>
     """
     st.markdown(js_code, unsafe_allow_html=True)
 
