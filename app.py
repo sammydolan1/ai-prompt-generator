@@ -24,15 +24,15 @@ with col1:
     # Choose the tone of the AI-generated prompt
     tone = st.selectbox("🎭 Select Writing Tone:", ["Creative", "Formal", "Humorous", "Inspiring"])
 
+    # User Input: Enter a topic for the AI to generate a prompt
+    topic = st.text_input("Enter a topic:", placeholder="Type your topic here...", help="Enter a subject for the AI to generate prompts about.")
+
 with col2:
     # Choose the category/genre for the writing prompt
     category = st.selectbox("📖 Select Prompt Category:", ["General", "Sci-Fi", "Mystery", "Romance"])
 
     # Choose the number of prompts to generate (from 1 to 5)
     num_prompts = st.slider("🔢 Number of Prompts", 1, 5, 3)
-
-    # User Input: Enter a topic for the AI to generate a prompt
-    topic = st.text_input("Enter a topic:", key="topic_input", placeholder="Type your topic here...", help="Enter a subject for the AI to generate prompts about.", label_visibility="collapsed")
 
 # Button to generate AI prompts
 if st.button("Generate Prompt", use_container_width=True):
