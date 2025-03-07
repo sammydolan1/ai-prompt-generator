@@ -5,11 +5,40 @@ import streamlit as st
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 # =============================
+# Styles
+# =============================
+
+st.markdown("""
+    <style>
+        .title {
+            color: #4CAF50;
+            text-align: center;
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .subtitle {
+            color: #555;
+            text-align: center;
+            font-size: 18px;
+        }
+        .stButton>button {
+            background-color: #008CBA !important;
+            color: white !important;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+        .stMarkdown {
+            font-size: 18px !important;
+        }
+    </style>
+""", unsafe_allow_html=True)
+
+# =============================
 # Main UI - AI Prompt Generator
 # =============================
 
 # App Title
-st.title("📝 AI Writing Prompt Generator")
+st.markdown("<h1 class='title'>📝 AI Writing Prompt Generator</h1>", unsafe_allow_html=True)
 
 # App Description
 st.write("Generate creative writing prompts with AI! Customize the style, length, and tone.")
