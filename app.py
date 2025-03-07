@@ -70,8 +70,12 @@ if st.button("Generate Prompt"):
                 # "Download Prompt" Option
                 st.download_button("💾 Download Prompts", full_prompt_text, file_name="ai_prompts.txt")
 
+            except openai.error.AuthenticationError:
+                st.error("🚨 Oops! Something went wrong. Please check your API key or contact support.")
+            except openai.error.RateLimitError:
+                st.error("⚠️ Too many requests! Please wait a moment and try again.")
             except Exception as e:
-                st.error(f"🚨 Error: {e}")
+                st.error(f"Unexpected error: {e}")
 
 # =============================
 # Footer
