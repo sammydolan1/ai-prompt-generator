@@ -87,14 +87,17 @@ if st.button("Generate Prompt", use_container_width=True):
 
                 # Display prompts
                 st.success("✅ Here are your AI-generated prompts:")
-                full_prompt_text = "\n\n".join([f"**✨ Prompt {i+1}:** {p}" for i, p in enumerate(prompts)])  # Format for display
-                st.write(full_prompt_text)
+                for i, p in enumerate(prompts):
+                    with st.expander(f"✨ Prompt {i+1}"):
+                        st.write(p)
+                
+                full_prompt_text = "\n\n".join([f"Prompt {i+1}: {p}" for i, p in enumerate(prompts)])
 
-                # "Copy Prompt" Button
+                # "Copy Prompts" Button
                 st.button("📋 Copy to Clipboard", key="copy_button")
                 st.code(full_prompt_text, language="markdown")
 
-                # "Download Prompt" Option
+                # "Download Prompts" Option
                 st.download_button("💾 Download Prompts", full_prompt_text, file_name="ai_prompts.txt")
 
             except openai.error.AuthenticationError:
