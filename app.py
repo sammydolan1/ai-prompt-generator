@@ -32,7 +32,7 @@ with col2:
     num_prompts = st.slider("🔢 Number of Prompts", 1, 5, 3)
 
     # User Input: Enter a topic for the AI to generate a prompt
-    topic = st.text_input("Enter a topic:", key="topic_input")
+    topic = st.text_input("Enter a topic:", key="topic_input", placeholder="Type your topic here...", help="Enter a subject for the AI to generate prompts about.", label_visibility="collapsed")
 
 # Button to generate AI prompts
 if st.button("Generate Prompt", use_container_width=True):
