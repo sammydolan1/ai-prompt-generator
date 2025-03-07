@@ -60,6 +60,19 @@ with col1:
         "A robot discovering emotions for the first time",
         "A mysterious book that rewrites itself",
         "An alien invasion with an unexpected twist"
+        "A scientist discovers a portal to a parallel universe",
+        "A ghost seeking revenge on their past life enemies",
+        "A child who wakes up with the ability to stop time",
+        "A medieval kingdom where dragons are actually extinct",
+        "A hacker who accidentally exposes a world-changing secret",
+        "A spaceship lost in deep space finds an abandoned alien city",
+        "An artist who paints scenes that later come to life",
+        "A musician who finds a cursed instrument that plays itself",
+        "A billionaire who fakes their own death to solve a mystery",
+        "A journalist uncovering the truth behind a legendary monster",
+        "A town where no one has slept in over a decade",
+        "A secret underground society controlling the world’s history",
+        "A detective investigating a series of crimes committed in dreams"
     ]
 
     # Initialize topic in session state if not set
