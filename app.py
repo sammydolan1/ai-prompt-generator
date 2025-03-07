@@ -97,16 +97,6 @@ with col2:
     # Choose the number of prompts to generate (from 1 to 5)
     num_prompts = st.slider("🔢 Number of Prompts", 1, 5, 3)
 
-# Function to create a copy-to-clipboard button
-def copy_to_clipboard_button(prompt, key):
-    if st.button(f"📋 Copy Prompt {key+1}", key=f"copy_{key}"):
-        st.session_state["copied_prompt"] = prompt
-        st.success(f"✅ Prompt {key+1} copied!")
-
-# Initialize session state for copied prompt
-if "copied_prompt" not in st.session_state:
-    st.session_state["copied_prompt"] = ""
-
 # Button to generate AI prompts
 if st.button("Generate Prompt", use_container_width=True):
     if st.session_state.topic.strip() == "": # Check if the topic is empty
@@ -133,9 +123,7 @@ if st.button("Generate Prompt", use_container_width=True):
                 st.success("✅ Here are your AI-generated prompts:")
                 for i, p in enumerate(prompts):
                     with st.expander(f"✨ Prompt {i+1}"):
-                        st.write(p)
                         st.text_area(f"Prompt {i+1}", value=p, height=100, key=f"text_{i}")
-                        copy_to_clipboard_button(p, i)
                 
                 full_prompt_text = "\n\n".join([f"Prompt {i+1}: {p}" for i, p in enumerate(prompts)])
 
