@@ -125,7 +125,7 @@ if st.button("Generate Prompt", use_container_width=True):
                     with st.expander(f"✨ Prompt {i+1}"):
                         st.text_area(f"Prompt {i+1}", value=p, height=100, key=f"text_{i}")
                 
-                full_prompt_text = "\n\n".join([f"Prompt {i+1}: {p}" for i, p in enumerate(prompts)])
+                full_prompt_text = "\n\n".join([f"{p}" for i, p in enumerate(prompts)])
 
                 # "Copy Prompts" Button
                 st.button("📋 Copy to Clipboard", key="copy_button")
