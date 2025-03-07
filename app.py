@@ -14,24 +14,22 @@ st.title("📝 AI Writing Prompt Generator")
 # App Description
 st.write("Generate creative writing prompts with AI! Customize the style, length, and tone.")
 
-st.sidebar.header("🎨 Customize Your Prompt")
-
 # Using columns to improve UI layout
 col1, col2 = st.columns(2)
 
 with col1:
     # Choose the length of the AI-generated prompt
-    prompt_length = st.sidebar.selectbox("📏 Select Prompt Length:", ["Short", "Medium", "Long"])
+    prompt_length = st.selectbox("📏 Select Prompt Length:", ["Short", "Medium", "Long"])
 
     # Choose the tone of the AI-generated prompt
-    tone = st.sidebar.selectbox("🎭 Select Writing Tone:", ["Creative", "Formal", "Humorous", "Inspiring"])
+    tone = st.selectbox("🎭 Select Writing Tone:", ["Creative", "Formal", "Humorous", "Inspiring"])
 
 with col2:
     # Choose the category/genre for the writing prompt
-    category = st.sidebar.selectbox("📖 Select Prompt Category:", ["General", "Sci-Fi", "Mystery", "Romance"])
+    category = st.selectbox("📖 Select Prompt Category:", ["General", "Sci-Fi", "Mystery", "Romance"])
 
     # Choose the number of prompts to generate (from 1 to 5)
-    num_prompts = st.sidebar.slider("🔢 Number of Prompts", 1, 5, 3)
+    num_prompts = st.slider("🔢 Number of Prompts", 1, 5, 3)
 
     # User Input: Enter a topic for the AI to generate a prompt
     topic = st.text_input("Enter a topic:", key="topic_input")
