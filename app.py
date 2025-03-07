@@ -5,8 +5,14 @@ import streamlit as st
 openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 # =============================
-# Sidebar - User Customization Options
+# Main UI - AI Prompt Generator
 # =============================
+
+# App Title
+st.title("📝 AI Writing Prompt Generator")
+
+# App Description
+st.write("Generate creative writing prompts with AI! Customize the style, length, and tone.")
 
 st.sidebar.header("🎨 Customize Your Prompt")
 
@@ -24,25 +30,14 @@ with col2:
     # Choose the category/genre for the writing prompt
     category = st.sidebar.selectbox("📖 Select Prompt Category:", ["General", "Sci-Fi", "Mystery", "Romance"])
 
-# Choose the number of prompts to generate (from 1 to 5)
-num_prompts = st.sidebar.slider("🔢 Number of Prompts", 1, 5, 3)
+    # Choose the number of prompts to generate (from 1 to 5)
+    num_prompts = st.sidebar.slider("🔢 Number of Prompts", 1, 5, 3)
 
-
-# =============================
-# Main UI - AI Prompt Generator
-# =============================
-
-# App Title
-st.title("📝 AI Writing Prompt Generator")
-
-# App Description
-st.write("Generate creative writing prompts with AI! Customize the style, length, and tone.")
-
-# User Input: Enter a topic for the AI to generate a prompt
-topic = st.text_input("Enter a topic:")
+    # User Input: Enter a topic for the AI to generate a prompt
+    topic = st.text_input("Enter a topic:", key="topic_input")
 
 # Button to generate AI prompts
-if st.button("Generate Prompt"):
+if st.button("Generate Prompt", use_container_width=True):
     if topic.strip() == "": # Check if the topic is empty
         st.warning("⚠️ Please enter a topic before generating a prompt.")
     else:
@@ -79,8 +74,10 @@ if st.button("Generate Prompt"):
                 st.error("🚨 Oops! Something went wrong. Please check your API key or contact support.")
             except openai.error.RateLimitError:
                 st.error("⚠️ Too many requests! Please wait a moment and try again.")
-            except Exception as e:
-                st.error(f"Unexpected error: {e}")
+            except openai.error.OpenAIError:
+                st.error("⚠️ The AI is taking longer than expected. Try again in a few seconds.")
+            except Exception:
+                st.error("⚠️ Something went wrong. Please refresh the page and try again.")
 
 # =============================
 # Footer
