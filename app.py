@@ -41,7 +41,7 @@ st.markdown("""
 st.markdown("<h1 class='title'>📝 AI Writing Prompt Generator</h1>", unsafe_allow_html=True)
 
 # App Description
-st.write("Generate creative writing prompts with AI! Customize the style, length, and tone.")
+st.markdown("<p class='subtitle'>Generate creative writing prompts with AI! Customize the style, length, and tone.</p>", unsafe_allow_html=True)
 
 # Using columns to improve UI layout
 col1, col2 = st.columns(2)
@@ -87,7 +87,7 @@ if st.button("Generate Prompt", use_container_width=True):
 
                 # Display prompts
                 st.success("✅ Here are your AI-generated prompts:")
-                full_prompt_text = "\n\n".join([f"**Prompt {i+1}:** {p}" for i, p in enumerate(prompts)])  # Format for display
+                full_prompt_text = "\n\n".join([f"**✨ Prompt {i+1}:** {p}" for i, p in enumerate(prompts)])  # Format for display
                 st.write(full_prompt_text)
 
                 # "Copy Prompt" Button
