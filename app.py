@@ -10,14 +10,19 @@ openai.api_key = st.secrets["OPENAI_API_KEY"]
 
 st.sidebar.header("🎨 Customize Your Prompt")
 
-# Choose the length of the AI-generated prompt
-prompt_length = st.sidebar.selectbox("📏 Select Prompt Length:", ["Short", "Medium", "Long"])
+# Using columns to improve UI layout
+col1, col2 = st.columns(2)
 
-# Choose the tone of the AI-generated prompt
-tone = st.sidebar.selectbox("🎭 Select Writing Tone:", ["Creative", "Formal", "Humorous", "Inspiring"])
+with col1:
+    # Choose the length of the AI-generated prompt
+    prompt_length = st.sidebar.selectbox("📏 Select Prompt Length:", ["Short", "Medium", "Long"])
 
-# Choose the category/genre for the writing prompt
-category = st.sidebar.selectbox("📖 Select Prompt Category:", ["General", "Sci-Fi", "Mystery", "Romance"])
+    # Choose the tone of the AI-generated prompt
+    tone = st.sidebar.selectbox("🎭 Select Writing Tone:", ["Creative", "Formal", "Humorous", "Inspiring"])
+
+with col2:
+    # Choose the category/genre for the writing prompt
+    category = st.sidebar.selectbox("📖 Select Prompt Category:", ["General", "Sci-Fi", "Mystery", "Romance"])
 
 # Choose the number of prompts to generate (from 1 to 5)
 num_prompts = st.sidebar.slider("🔢 Number of Prompts", 1, 5, 3)
