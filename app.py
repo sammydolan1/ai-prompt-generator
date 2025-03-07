@@ -48,8 +48,6 @@ st.markdown("<p class='subtitle'>Generate creative writing prompts with AI! Cust
 col1, col2 = st.columns(2)
 
 with col1:
-    # Choose the length of the AI-generated prompt
-    prompt_length = st.selectbox("📏 Select Prompt Length:", ["Short", "Medium", "Long"])
 
     # Choose the tone of the AI-generated prompt
     tone = st.selectbox("🎭 Select Writing Tone:", ["Creative", "Formal", "Humorous", "Inspiring"])
@@ -71,6 +69,11 @@ with col1:
     # User Input: Enter a topic for the AI to generate a prompt
     topic = st.text_input("✍️ Enter a topic:", value=st.session_state.topic, placeholder="Type your topic here...", help="Enter a subject for the AI to generate prompts about.")
 
+    # Surprise Me! button to generate a random topic
+    if st.button("🎲 Surprise Me!"):
+        st.session_state.topic = random.choice(random_topics)
+        st.rerun()
+
 with col2:
     # Choose the category/genre for the writing prompt
     category = st.selectbox("📖 Select Prompt Category:", ["General", "Sci-Fi", "Mystery", "Romance"])
@@ -78,10 +81,8 @@ with col2:
     # Choose the number of prompts to generate (from 1 to 5)
     num_prompts = st.slider("🔢 Number of Prompts", 1, 5, 3)
 
-# Surprise Me! button to generate a random topic
-if st.button("🎲 Surprise Me!"):
-    st.session_state.topic = random.choice(random_topics)
-    st.rerun()
+    # Choose the length of the AI-generated prompt
+    prompt_length = st.selectbox("📏 Select Prompt Length:", ["Short", "Medium", "Long"])
 
 # Button to generate AI prompts
 if st.button("Generate Prompt", use_container_width=True):
