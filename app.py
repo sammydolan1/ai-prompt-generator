@@ -78,11 +78,11 @@ with col2:
     # Choose the category/genre for the writing prompt
     category = st.selectbox("📖 Select Prompt Category:", ["General", "Sci-Fi", "Mystery", "Romance"])
 
-    # Choose the number of prompts to generate (from 1 to 5)
-    num_prompts = st.slider("🔢 Number of Prompts", 1, 5, 3)
-
     # Choose the length of the AI-generated prompt
     prompt_length = st.selectbox("📏 Select Prompt Length:", ["Short", "Medium", "Long"])
+
+    # Choose the number of prompts to generate (from 1 to 5)
+    num_prompts = st.slider("🔢 Number of Prompts", 1, 5, 3)
 
 # Button to generate AI prompts
 if st.button("Generate Prompt", use_container_width=True):
