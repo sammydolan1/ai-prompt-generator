@@ -50,7 +50,7 @@ col1, col2 = st.columns(2)
 with col1:
 
     # Choose the tone of the AI-generated prompt
-    tone = st.selectbox("🎭 Select Writing Tone:", ["Creative", "Formal", "Humorous", "Inspiring"])
+    tone = st.selectbox("🎭 Select Writing Tone:", ["Creative", "Formal", "Humorous", "Inspiring", "Dramatic", "Casual", "Poetic", "Suspenseful", "Motivational", "Whimsical"])
 
     # Predefined list of random topics
     random_topics = [
@@ -76,7 +76,7 @@ with col1:
 
 with col2:
     # Choose the category/genre for the writing prompt
-    category = st.selectbox("📖 Select Prompt Category:", ["General", "Sci-Fi", "Mystery", "Romance"])
+    category = st.selectbox("📖 Select Prompt Category:", ["General", "Sci-Fi", "Mystery", "Romance", "Fantasy", "Horror", "Thriller", "Historical Fiction", "Comedy", "Dystopian", "Adventure"])
 
     # Choose the length of the AI-generated prompt
     prompt_length = st.selectbox("📏 Select Prompt Length:", ["Short", "Medium", "Long"])
