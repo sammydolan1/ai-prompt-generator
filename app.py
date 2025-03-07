@@ -80,7 +80,7 @@ with col2:
 # Surprise Me! button to generate a random topic
 if st.button("🎲 Surprise Me!"):
     st.session_state.topic = random.choice(random_topics)
-    st.experimental_rerun()
+    st.rerun()
 
 # Button to generate AI prompts
 if st.button("Generate Prompt", use_container_width=True):
