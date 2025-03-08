@@ -127,10 +127,6 @@ if st.button("Generate Prompt", use_container_width=True):
                 
                 full_prompt_text = "\n\n".join([f"Prompt {i+1}: {p}" for i, p in enumerate(prompts)])
 
-                # "Copy Prompts" Button
-                st.button("📋 Copy to Clipboard", key="copy_button")
-                st.code(full_prompt_text, language="markdown")
-
                 # "Download Prompts" Option
                 st.download_button("💾 Download Prompts", full_prompt_text, file_name="ai_prompts.txt")
 
